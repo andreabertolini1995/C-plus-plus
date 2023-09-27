@@ -1,2 +1,2 @@
-# C_plus_plus
+# C++
 Introductory exercises to understand the fundamentals of C++.
