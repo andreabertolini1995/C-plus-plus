@@ -1,5 +1,5 @@
-NAME = megaphone
-SOURCES = megaphone.cpp
+NAME = phonebook
+SOURCES = phonebook.cpp
 OBJ_DIR = obj
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
 
