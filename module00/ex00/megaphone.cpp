@@ -5,7 +5,7 @@ using namespace std;
 void printUppercaseString(int argc, char **str) {
     
     for (int i = 1; i < argc; i++) {
-        for (int j = 0; j < strlen(str[i]); j++) {
+        for (size_t j = 0; j < strlen(str[i]); j++) {
             cout << (char)(toupper(str[i][j])) << "";
         }
     }
