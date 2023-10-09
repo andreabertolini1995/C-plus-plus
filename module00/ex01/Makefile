@@ -1,7 +1,10 @@
 NAME = phonebook
-SOURCES = phonebook.cpp
+SRCDIR = src
+# SOURCES = megaphone.cpp
+SOURCES = $(wildcard $(SRCDIR)/**/*.cpp $(SRCDIR)/*.cpp)
 OBJ_DIR = obj
-OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
+# OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
+OBJS = $(patsubst $(SOURCES)/%.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
 
 CC = c++
 RM = rm -f
@@ -19,7 +22,7 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) -r $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
