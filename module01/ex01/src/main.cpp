@@ -1,6 +1,6 @@
 #include "../include/Zombie.hpp"
 
 int main() {
-    randomChump("Andrea");
-    randomChump("Berto");
+    Zombie *zombies = zombieHorde(5, "Andrea");
+    delete []zombies;
 }

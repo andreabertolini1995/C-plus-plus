@@ -1,4 +1,4 @@
-NAME = zombies
+NAME = zombie
 SRCDIR = src
 SOURCES = $(wildcard $(SRCDIR)/**/*.cpp $(SRCDIR)/*.cpp)
 OBJ_DIR = obj

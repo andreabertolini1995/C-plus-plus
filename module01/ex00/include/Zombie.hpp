@@ -12,19 +12,19 @@ class Zombie {
         string name;
 
     public:
-        Zombie() {} // default (dummy) constructor
+
         Zombie(string n) {
             name = n;
         }
-        // ~Zombie() {
-        //     cout << this->name << " is destroyed" << endl;
-        // }
+        ~Zombie() { cout << this->name << " is destroyed" << endl; }
 
         void    announce(void) {
             cout << this->name << ": BraiiiiiiinnnzzzZ..." << endl;
         }
+        
 };
 
-Zombie* zombieHorde(int N, string name);
+Zombie* newZombie(string name);
+void    randomChump(string name);
 
 #endif
