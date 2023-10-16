@@ -13,12 +13,9 @@ class Zombie {
 
     public:
         Zombie() {} // default (dummy) constructor
-        Zombie(string n) {
-            name = n;
+        ~Zombie() {
+            cout << this->name << " is destroyed" << endl;
         }
-        // ~Zombie() {
-        //     cout << this->name << " is destroyed" << endl;
-        // }
 
         void    announce(void) {
             cout << this->name << ": BraiiiiiiinnnzzzZ..." << endl;

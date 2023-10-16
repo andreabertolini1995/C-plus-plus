@@ -5,7 +5,8 @@ Zombie* zombieHorde(int N, string name) {
     Zombie *zombieHorde = new Zombie[N]; 
 
     for (int i = 0; i < N; i++) {
-        zombieHorde[i] = Zombie(name); // here the zombie is already destroyed somehow
+        string *ptr = (string*) &zombieHorde[i]; // access the private attribute
+        *ptr = name;
         zombieHorde[i].announce();
     }
 
