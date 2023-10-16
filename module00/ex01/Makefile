@@ -1,9 +1,7 @@
 NAME = phonebook
 SRCDIR = src
-# SOURCES = megaphone.cpp
 SOURCES = $(wildcard $(SRCDIR)/**/*.cpp $(SRCDIR)/*.cpp)
 OBJ_DIR = obj
-# OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
 OBJS = $(patsubst $(SOURCES)/%.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
 
 CC = c++
