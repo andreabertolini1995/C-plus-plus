@@ -19,23 +19,45 @@ Contact createNewContact() {
     cout << "Darkest secret: ";
     cin >> newContact.darkestSecret;
 
+    cout << "\n";
+
     return newContact;
+}
+
+void    searchContact(string inputCommand, PhoneBook phonebook) {
+    inputCommand = "42";
+    
+    while (!isValid(inputCommand, phonebook.currentNumberOfContacts)) {
+        
+        cout << INDEX_PROMPT;
+        cin >> inputCommand;
+        
+        int inputIndex;
+        inputIndex = stoi(inputCommand);
+        if (!isValid(inputCommand, phonebook.currentNumberOfContacts)) {
+            cerr << "Please insert a valid numberic value between 0 and " << phonebook.currentNumberOfContacts - 1 << endl;
+        }
+        else {
+            printContactInformation(phonebook.contacts[inputIndex]);
+        }
+    }
 }
 
 int main() {
     PhoneBook phonebook(0);
     string inputCommand;
 
-    while (inputCommand.compare("EXIT") != 0) {
+    while (inputCommand.compare(EXIT) != 0) {
         
-        cout << "Please enter a command among ADD, SEARCH and EXIT: ";
+        cout << COMMAND_PROMPT;
         cin >> inputCommand;
         
-        if (inputCommand.compare("ADD") == 0) {
+        if (inputCommand.compare(ADD) == 0) {
             phonebook.addNewContact(createNewContact());
         }
-        else if (inputCommand.compare("SEARCH") == 0) {
+        else if (inputCommand.compare(SEARCH) == 0) {
             printContactsTable(phonebook);
+            searchContact(inputCommand, phonebook);
         }
         else
             continue;

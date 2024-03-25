@@ -29,3 +29,30 @@ void    printContactsTable(PhoneBook phonebook) {
             phonebook.contacts[i].lastName, phonebook.contacts[i].nickName);
     }
 }
+
+// TODO: Prettify this print to align contacts information
+void    printContactInformation(Contact contact) {
+
+    cout << "First name: " << contact.firstName << endl;
+    cout << "Last name: " << contact.lastName << endl;
+    cout << "Nickname: " << contact.nickName << endl;
+
+}
+
+bool isNumeric(string str) {
+    for (string::size_type c = 0; c < str.length(); c++) {
+        if (!isdigit(str[c])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool isValid(string str, int numContracts) {
+    int num;
+
+    num = stoi(str);
+    if (!isNumeric(str) || num < 0 || num > (numContracts - 1))
+        return false;
+    return true;
+}
