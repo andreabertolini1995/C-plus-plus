@@ -3,9 +3,13 @@
 Zombie::Zombie() {} // default (dummy) constructor
 
 Zombie::~Zombie() {
-    cout << this->name << " is destroyed" << endl;
+    std::cout << this->name << " is destroyed" << std::endl;
 }
 
 void    Zombie::announce(void) {
-    cout << this->name << ": BraiiiiiiinnnzzzZ..." << endl;
+    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(std::string name) {
+    this->name = name;
 }
