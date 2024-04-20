@@ -1,6 +1,6 @@
 #include "../include/Replace.hpp"
 
-static void replaceOccurence(string s1, string s2, ofstream& newFile, string line) {
+static void replaceOccurence(std::string s1, std::string s2, std::ofstream& newFile, std::string line) {
     
     size_t pos = 0;
     size_t found;
@@ -17,25 +17,28 @@ static void replaceOccurence(string s1, string s2, ofstream& newFile, string lin
 
 int main(int argc, char **argv) {
 
-    if (argc != 4)
-        return (1);
+    if (argc != 4) {
+        std::cout << "Please insert three arguments!" << std::endl;
+        return (EXIT_FAILURE);
+    }
     else
     {
-        ifstream    myFile;
-        ofstream    newFile;
-        string      s1, s2, fileName, line;
+        std::ifstream    myFile;
+        std::ofstream    newFile;
+        std::string      s1, s2, fileName, newFileName, line;
 
         fileName = argv[1];
         s1 = argv[2];
         s2 = argv[3];
         
-        myFile.open(fileName);
-        newFile.open(fileName + ".replace");
+        myFile.open(fileName.c_str());
+        newFileName = fileName.append(".replace");
+        newFile.open(newFileName.c_str());
 
         while (getline(myFile, line))
             replaceOccurence(s1, s2, newFile, line);
         myFile.close();
         newFile.close();
-        return 0;
+        return (EXIT_SUCCESS);
     }
 }

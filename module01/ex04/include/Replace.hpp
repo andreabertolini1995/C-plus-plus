@@ -1,10 +1,10 @@
 #ifndef REPLACE_HPP
 # define REPLACE_HPP
 
-#include <string> 
 #include <iostream>
 #include <fstream>
-using namespace std;
 
+# define EXIT_SUCCESS 0
+# define EXIT_FAILURE 1
 
 #endif
