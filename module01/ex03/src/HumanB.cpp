@@ -1,6 +1,6 @@
 #include "../include/HumanB.hpp"
 
-HumanB::HumanB(string name): name(name) {}
+HumanB::HumanB(std::string name): name(name) {}
 
 HumanB::~HumanB() {}
 
@@ -9,5 +9,5 @@ void HumanB::setWeapon(Weapon &weapon) {
 }
 
 void HumanB::attack() {
-    cout << this->name << " attacks with their " << this->weapon->getType() << endl;
+    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 }
