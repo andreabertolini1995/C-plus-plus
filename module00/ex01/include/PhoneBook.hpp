@@ -18,23 +18,14 @@ const std::string INDEX_PROMPT = "Please enter the index of the contact you woul
 const std::string COMMAND_PROMPT = "Please enter a command among ADD, SEARCH and EXIT: ";
 
 class PhoneBook {
-    public:
+    private:
         Contact contacts[MAX_NUM_CONTACTS];
         int     currentNumberOfContacts;
-        
-        PhoneBook(int n) {
-            currentNumberOfContacts = n;
-        }
-
-        void    addNewContact(Contact contact) {
-            if (this->currentNumberOfContacts == MAX_NUM_CONTACTS) {
-                this->contacts[this->currentNumberOfContacts - 1] = contact;
-            }
-            else {
-                this->contacts[this->currentNumberOfContacts] = contact;
-                this->currentNumberOfContacts++;
-            }
-        }
+       
+    public:
+        PhoneBook(int n);
+        ~PhoneBook();
+        void addNewContact(Contact contact);
 };
 
 void    printContactsTable(PhoneBook phonebook);
