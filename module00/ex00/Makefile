@@ -4,7 +4,7 @@ OBJ_DIR = obj
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SOURCES))
 
 CC = c++
-RM = rm -f
+RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)	
@@ -22,6 +22,6 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(OBJ_DIR)
 
 re: fclean $(NAME)
