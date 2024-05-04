@@ -23,27 +23,12 @@ void Contact::setDarkestSecret(std::string darkestSecret) {
     this->darkestSecret = darkestSecret;
 }
 
-// std::string Contact::getFirstname() {
-//     return this->firstName;
-// }
-
-// std::string Contact::getLastname() {
-//     return (this->lastName);
-// }
-
-// std::string Contact::getNickName() {
-//     return (this->nickName);
-// }
-
-// std::string Contact::getPhoneNumber() {
-//     return (this->phoneNumber);
-// }
-
-// std::string Contact::getDarkestSecret() {
-//     return (this->darkestSecret);
-// }
-
+// isValidContact checks if the contact contains empty fields
 bool Contact::isValidContact() {
-    if
+    if (this->firstName.empty() || this->lastName.empty()
+        || this->nickName.empty() || this->phoneNumber.empty()
+        || this->darkestSecret.empty())
+        return false;
+    return true;
 }
 

@@ -48,11 +48,11 @@ bool isNumeric(std::string str) {
     return true;
 }
 
-bool isValid(std::string str, int numContracts) {
+bool isValid(std::string str, int numContacts) {
     int num;
 
     std::istringstream(str) >> num;
-    if (!isNumeric(str) || num < 0 || num > (numContracts - 1))
+    if (!isNumeric(str) || num < 0 || num > (numContacts - 1))
         return false;
     return true;
 }

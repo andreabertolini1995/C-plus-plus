@@ -17,10 +17,12 @@ const std::string EXIT = "EXIT";
 const std::string INDEX_PROMPT = "Please enter the index of the contact you would like to see: ";
 const std::string COMMAND_PROMPT = "Please enter a command among ADD, SEARCH and EXIT: ";
 
+const std::string ERR_EMPTY_CONTACT_FIELDS = "A saved contact can’t have empty fields";
+
 class PhoneBook {
     private:
         Contact contacts[MAX_NUM_CONTACTS];
-        int     currentNumberOfContacts;
+        int     numContacts;
        
     public:
         PhoneBook(int n);

@@ -17,11 +17,6 @@ class Contact {
         void setNickName(std::string nickName);
         void setPhoneNumber(std::string phoneNumber);
         void setDarkestSecret(std::string darkestSecret);
-        // std::string getFirstname();
-        // std::string getFirstname();
-        // std::string getNickName();
-        // std::string getPhoneNumber();
-        // std::string getDarkestSecret();
         bool isValidContact();
 };
 
