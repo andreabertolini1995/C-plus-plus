@@ -1,29 +1,29 @@
 
-#include "../include/phonebook.hpp"
+#include "../include/PhoneBook.hpp"
 
-static string  checkColumnSize(string col) {
+static std::string  checkColumnSize(std::string col) {
     if (col.size() > COLUMN_WIDTH)
         return col.substr(0, COLUMN_WIDTH - 1) + ".";
     return col;
 }
 
-static void    printTableRow(string col1, string col2, string col3, string col4) {
+static void    printTableRow(std::string col1, std::string col2, std::string col3, std::string col4) {
 
     col2 = checkColumnSize(col2);
     col3 = checkColumnSize(col3);
     col4 = checkColumnSize(col4);
     
-    cout << setw(COLUMN_WIDTH) << col1 << "|"
-         << setw(COLUMN_WIDTH) << col2 << "|"
-         << setw(COLUMN_WIDTH) << col3 << "|"
-         << setw(COLUMN_WIDTH) << col4 << "|" << endl;
+    std::cout << std::setw(COLUMN_WIDTH) << col1 << "|"
+         << std::setw(COLUMN_WIDTH) << col2 << "|"
+         << std::setw(COLUMN_WIDTH) << col3 << "|"
+         << std::setw(COLUMN_WIDTH) << col4 << "|" << std::endl;
 }
 
 void    printContactsTable(PhoneBook phonebook) {
     printTableRow("Index", "First name", "Last name", "Nickname");
             
     for (int i = 0; i < phonebook.currentNumberOfContacts; i++) {
-        stringstream out;
+        std::stringstream out;
         out << i;
         printTableRow(out.str(), phonebook.contacts[i].firstName,
             phonebook.contacts[i].lastName, phonebook.contacts[i].nickName);
@@ -33,14 +33,14 @@ void    printContactsTable(PhoneBook phonebook) {
 // TODO: Prettify this print to align contacts information
 void    printContactInformation(Contact contact) {
 
-    cout << "First name: " << contact.firstName << endl;
-    cout << "Last name: " << contact.lastName << endl;
-    cout << "Nickname: " << contact.nickName << endl;
+    std::cout << "First name: " << contact.firstName << std::endl;
+    std::cout << "Last name: " << contact.lastName << std::endl;
+    std::cout << "Nickname: " << contact.nickName << std::endl;
 
 }
 
-bool isNumeric(string str) {
-    for (string::size_type c = 0; c < str.length(); c++) {
+bool isNumeric(std::string str) {
+    for (std::string::size_type c = 0; c < str.length(); c++) {
         if (!isdigit(str[c])) {
             return false;
         }
@@ -48,10 +48,10 @@ bool isNumeric(string str) {
     return true;
 }
 
-bool isValid(string str, int numContracts) {
+bool isValid(std::string str, int numContracts) {
     int num;
 
-    num = stoi(str);
+    std::istringstream(str) >> num;
     if (!isNumeric(str) || num < 0 || num > (numContracts - 1))
         return false;
     return true;

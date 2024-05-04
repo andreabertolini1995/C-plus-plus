@@ -1,41 +1,41 @@
-#include "../include/phonebook.hpp"
+#include "../include/PhoneBook.hpp"
 
 // A saved contact can’t have empty fields
 Contact createNewContact() {
     Contact newContact;
 
-    cout << "First name: ";
-    cin >> newContact.firstName;
+    std::cout << "First name: ";
+    std::cin >> newContact.firstName;
 
-    cout << "Last name: ";
-    cin >> newContact.lastName;
+    std::cout << "Last name: ";
+    std::cin >> newContact.lastName;
 
-    cout << "Nickname: ";
-    cin >> newContact.nickName;
+    std::cout << "Nickname: ";
+    std::cin >> newContact.nickName;
 
-    cout << "Phone Number: ";
-    cin >> newContact.phoneNumber;
+    std::cout << "Phone Number: ";
+    std::cin >> newContact.phoneNumber;
 
-    cout << "Darkest secret: ";
-    cin >> newContact.darkestSecret;
+    std::cout << "Darkest secret: ";
+    std::cin >> newContact.darkestSecret;
 
-    cout << "\n";
+    std::cout << "\n";
 
     return newContact;
 }
 
-void    searchContact(string inputCommand, PhoneBook phonebook) {
+void    searchContact(std::string inputCommand, PhoneBook phonebook) {
     inputCommand = "42";
     
     while (!isValid(inputCommand, phonebook.currentNumberOfContacts)) {
         
-        cout << INDEX_PROMPT;
-        cin >> inputCommand;
+        std::cout << INDEX_PROMPT;
+        std::cin >> inputCommand;
         
         int inputIndex;
-        inputIndex = stoi(inputCommand);
+        std::istringstream(inputCommand) >> inputIndex;
         if (!isValid(inputCommand, phonebook.currentNumberOfContacts)) {
-            cerr << "Please insert a valid numberic value between 0 and " << phonebook.currentNumberOfContacts - 1 << endl;
+            std::cerr << "Please insert a valid numberic value between 0 and " << phonebook.currentNumberOfContacts - 1 << std::endl;
         }
         else {
             printContactInformation(phonebook.contacts[inputIndex]);
@@ -45,12 +45,12 @@ void    searchContact(string inputCommand, PhoneBook phonebook) {
 
 int main() {
     PhoneBook phonebook(0);
-    string inputCommand;
+    std::string inputCommand;
 
     while (inputCommand.compare(EXIT) != 0) {
         
-        cout << COMMAND_PROMPT;
-        cin >> inputCommand;
+        std::cout << COMMAND_PROMPT;
+        std::cin >> inputCommand;
         
         if (inputCommand.compare(ADD) == 0) {
             phonebook.addNewContact(createNewContact());

@@ -1,31 +1,21 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <string> 
+#include <cstring> 
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-using namespace std;
+#include "Contact.hpp"
 
 const int   MAX_NUM_CONTACTS = 8;
 const int   COLUMN_WIDTH = 10;
 
-const string ADD = "ADD";
-const string SEARCH = "SEARCH";
-const string EXIT = "EXIT";
+const std::string ADD = "ADD";
+const std::string SEARCH = "SEARCH";
+const std::string EXIT = "EXIT";
 
-const string INDEX_PROMPT = "Please enter the index of the contact you would like to see: ";
-const string COMMAND_PROMPT = "Please enter a command among ADD, SEARCH and EXIT: "
-
-
-class Contact {
-    public:
-        string firstName;
-        string lastName;
-        string nickName;
-        string phoneNumber;
-        string darkestSecret;
-};
+const std::string INDEX_PROMPT = "Please enter the index of the contact you would like to see: ";
+const std::string COMMAND_PROMPT = "Please enter a command among ADD, SEARCH and EXIT: ";
 
 class PhoneBook {
     public:
@@ -49,7 +39,7 @@ class PhoneBook {
 
 void    printContactsTable(PhoneBook phonebook);
 void    printContactInformation(Contact contact);
-bool    isNumeric(string str);
-bool    isValid(string str, int numContracts);
+bool    isNumeric(std::string str);
+bool    isValid(std::string str, int numContracts);
 
 #endif
