@@ -1,3 +1,5 @@
+#include "MyAwesomePhoneBook.hpp"
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -17,7 +19,13 @@ class Contact {
         void setNickName(std::string nickName);
         void setPhoneNumber(std::string phoneNumber);
         void setDarkestSecret(std::string darkestSecret);
+        std::string getFirstName();
+        std::string getLastName();
+        std::string getNickname();
+        std::string getPhoneNumber();
+        std::string getDarkestSecret();
         bool isValidContact();
+        void printContactInformation();
 };
 
 #endif

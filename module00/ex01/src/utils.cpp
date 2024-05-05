@@ -7,7 +7,7 @@ static std::string  checkColumnSize(std::string col) {
     return col;
 }
 
-static void    printTableRow(std::string col1, std::string col2, std::string col3, std::string col4) {
+void    printTableRow(std::string col1, std::string col2, std::string col3, std::string col4) {
 
     col2 = checkColumnSize(col2);
     col3 = checkColumnSize(col3);
@@ -17,26 +17,6 @@ static void    printTableRow(std::string col1, std::string col2, std::string col
          << std::setw(COLUMN_WIDTH) << col2 << "|"
          << std::setw(COLUMN_WIDTH) << col3 << "|"
          << std::setw(COLUMN_WIDTH) << col4 << "|" << std::endl;
-}
-
-void    printContactsTable(PhoneBook phonebook) {
-    printTableRow("Index", "First name", "Last name", "Nickname");
-            
-    for (int i = 0; i < phonebook.currentNumberOfContacts; i++) {
-        std::stringstream out;
-        out << i;
-        printTableRow(out.str(), phonebook.contacts[i].firstName,
-            phonebook.contacts[i].lastName, phonebook.contacts[i].nickName);
-    }
-}
-
-// TODO: Prettify this print to align contacts information
-void    printContactInformation(Contact contact) {
-
-    std::cout << "First name: " << contact.firstName << std::endl;
-    std::cout << "Last name: " << contact.lastName << std::endl;
-    std::cout << "Nickname: " << contact.nickName << std::endl;
-
 }
 
 bool isNumeric(std::string str) {
