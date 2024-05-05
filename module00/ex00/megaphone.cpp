@@ -7,7 +7,6 @@ void printUppercaseString(int argc, char **str) {
         for (size_t j = 0; j < strlen(str[i]); j++) {
             std::cout << (char)(toupper(str[i][j])) << "";
         }
-        std::cout << " ";
     }
     std::cout << std::endl;
 }
