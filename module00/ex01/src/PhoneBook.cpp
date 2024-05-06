@@ -1,6 +1,6 @@
 #include "../include/PhoneBook.hpp"
 
-PhoneBook::PhoneBook(int n): numContacts(n) {}
+PhoneBook::PhoneBook(int n): _numContacts(n) {}
 
 PhoneBook::~PhoneBook() {}
 
@@ -11,41 +11,41 @@ void PhoneBook::addNewContact(Contact contact) {
         return ;
     }
 
-    if (this->numContacts == MAX_NUM_CONTACTS) {
-        this->contacts[0] = contact;
+    if (this->_numContacts == MAX_NUM_CONTACTS) {
+        this->_contacts[0] = contact;
     }
     else {
-        this->contacts[this->numContacts] = contact;
-        this->numContacts++;
+        this->_contacts[this->_numContacts] = contact;
+        this->_numContacts++;
     }
 }
 
 void    PhoneBook::printContactsTable() {
     printTableRow("Index", "First name", "Last name", "Nickname");
             
-    for (int i = 0; i < this->numContacts; i++) {
+    for (int i = 0; i < this->_numContacts; i++) {
         std::stringstream out;
         out << i;
-        printTableRow(out.str(), this->contacts[i].getFirstName(),
-            this->contacts[i].getLastName(), this->contacts[i].getNickname());
+        printTableRow(out.str(), this->_contacts[i].getFirstName(),
+            this->_contacts[i].getLastName(), this->_contacts[i].getNickname());
     }
 }
 
 void    PhoneBook::searchContact(std::string inputCommand) {
     inputCommand = DEFAULT_INPUT_COMMAND;
     
-    while (!isValid(inputCommand, this->numContacts)) {
+    while (!isValid(inputCommand, this->_numContacts)) {
         
         std::cout << INDEX_PROMPT;
         std::getline(std::cin, inputCommand);
         
         int inputIndex;
         std::istringstream(inputCommand) >> inputIndex;
-        if (!isValid(inputCommand, this->numContacts)) {
-            std::cerr << ERR_INVALID_INDEX << this->numContacts - 1 << std::endl;
+        if (!isValid(inputCommand, this->_numContacts)) {
+            std::cerr << ERR_INVALID_INDEX << this->_numContacts - 1 << std::endl;
         }
         else {
-            this->contacts[inputIndex].printContactInformation();
+            this->_contacts[inputIndex].printContactInformation();
         }
     }
 }

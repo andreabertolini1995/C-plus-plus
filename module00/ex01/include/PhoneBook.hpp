@@ -6,8 +6,8 @@
 
 class PhoneBook {
     private:
-        Contact contacts[MAX_NUM_CONTACTS];
-        int     numContacts;
+        Contact _contacts[MAX_NUM_CONTACTS];
+        int     _numContacts;
        
     public:
         PhoneBook(int n);
