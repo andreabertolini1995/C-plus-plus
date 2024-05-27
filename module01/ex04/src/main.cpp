@@ -12,7 +12,6 @@ void replaceOccurence(std::string s1, std::string s2, std::ofstream& newFile, st
             newFile << s2;
         pos = pos + line.substr(pos, found - pos).length() + s1.length();
     }
-    newFile << "\n";
 }
 
 int replaceOccurencesInFile(int argc, char **argv) {

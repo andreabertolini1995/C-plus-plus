@@ -14,26 +14,29 @@ std::string readFile(const std::string& filename) {
 
 void runTest(const std::string& inputFileName, const std::string& expectedOutputFileName, const std::string& s1, const std::string& s2) {
     std::string outputFileName = inputFileName + ".replace";
+    std::string expectedOutput = readFile(expectedOutputFileName);
 
     char* args[] = { (char*)"program_name", (char*)inputFileName.c_str(), (char*)s1.c_str(), (char*)s2.c_str() };
     replaceOccurencesInFile(4, args);
 
     std::string output = readFile(outputFileName);
-    std::string expectedOutput = readFile(expectedOutputFileName);
+
+    std::cout << output << std::endl;
+    std::cout << expectedOutput << std::endl;
 
     assert(output == expectedOutput);
 }
 
 int test() {
     
-    createFile("test1.txt", "Hello Andrea\n");
-    createFile("test1.txt.replace", "Bye Andrea");
+    createFile("test1.txt", "Hello Andrea");
+    createFile("testExpectedOutput1", "Bye Andrea");
 
     createFile("test2.txt", "Hi how are you today?");
-    createFile("test2.txt.replace", "Hi how are you tomorrow?");
+    createFile("testExpectedOutput2", "Hi how are you tomorrow?");
 
-    runTest("test1.txt", "test1.txt.replace", "Hello", "Bye");
-    runTest("test2.txt", "test2.txt.replace", "today", "tomorrow");
+    runTest("test1.txt", "testExpectedOutput1", "Hello", "Bye");
+    runTest("test2.txt", "testExpectedOutput2", "today", "tomorrow");
 
     std::cout << "All tests passed!" << std::endl;
     return (EXIT_SUCCESS);
