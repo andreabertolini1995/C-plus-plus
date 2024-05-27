@@ -18,7 +18,7 @@ static void replaceOccurence(std::string s1, std::string s2, std::ofstream& newF
 int main(int argc, char **argv) {
 
     if (argc != 4) {
-        std::cout << "Please insert three arguments!" << std::endl;
+        std::cout << "Please insert three arguments: a filename and two strings." << std::endl;
         return (EXIT_FAILURE);
     }
     else
