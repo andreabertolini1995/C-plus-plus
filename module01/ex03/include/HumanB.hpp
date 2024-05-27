@@ -6,8 +6,8 @@
 
 class HumanB {
     private:
-        std::string name;
-        Weapon *weapon; // pointer to weapon
+        std::string _name;
+        Weapon *_weapon; // pointer to weapon
 
     public:
         HumanB(std::string name);
